@@ -38,11 +38,29 @@ const battleship = () => {
   }
 
   function gameBoard(g) {
-    let x = prompt(`Enter x coordinate number from 0 to 3`);
-    let y = prompt(`Enter y coordinate number from 0 to 3`);
-    if (g.board[x][y] === 1) {
+    let x1 = prompt(`${playerOne.name} enter x coordinate number from 0 to 3`);
+    let y1 = prompt(`${playerOne.name} enter y coordinate number from 0 to 3`);
+
+    let x2 = prompt(`${playerTwo.name} enter x coordinate number from 0 to 3`);
+    let y2 = prompt(`${playerTwo.name} enter y coordinate number from 0 to 3`);
+
+    if (g.board[x1][y1] === 1) {
       alert(`Hit! Good job!`);
-      g.board[x][y] = 0;
+      g.board[x1][y1] = 0;
+      g.shipCount--;
+      if (g.shipCount === 0) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      alert(`Miss! Try Again!`);
+      return false;
+    }
+
+    if (g.board[x2][y2] === 1) {
+      alert(`Hit! Good job!`);
+      g.board[x2][y2] = 0;
       g.shipCount--;
       if (g.shipCount === 0) {
         return true;
